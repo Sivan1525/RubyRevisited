@@ -89,3 +89,20 @@ describe Zookeeper do
   end
 
 end
+
+describe Human do
+  it "should like bacon" do
+    human = Human.new
+    expect(human.likes?(:bacon)).to eq(true)
+  end
+
+  it "should like taco" do
+    human = Human.new
+    expect(human.likes?(:taco)).to eq(true)
+  end
+
+  it "should not like bamboo" do
+    human = Human.new
+    expect(human.likes?(:bamboo)).to eq(false)
+  end
+end

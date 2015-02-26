@@ -49,3 +49,11 @@ class Zookeeper
 		panda.eat(food) 
 	end
 end
+
+class Human < Animal
+
+	def acceptable_food
+		[:bacon,:taco]
+	end
+
+end
