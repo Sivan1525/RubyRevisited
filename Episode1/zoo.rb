@@ -57,3 +57,11 @@ class Human < Animal
 	end
 
 end
+
+class FoodBarge 
+	def food_for(animal)
+		if animal.is_a? Panda
+			:bamboo
+		end
+	end
+end

@@ -87,7 +87,6 @@ describe Zookeeper do
     expect(lion).to receive(:eat).with(:zeebras)
     Zookeeper.new.feed(food: :zeebras, to: lion)
   end
-
 end
 
 describe Human do
@@ -104,5 +103,22 @@ describe Human do
   it "should not like bamboo" do
     human = Human.new
     expect(human.likes?(:bamboo)).to eq(false)
+  end
+end
+
+describe FoodBarge do
+
+  it "should have food and zookeeper will get food from it" do
+    foodbarge = FoodBarge.new
+    panda = Panda.new
+    expect(foodbarge.food_for(panda)).to eq(:bamboo)
+  end
+
+
+  it "zookeeper should be able to feed panda" do
+    foodbarge = FoodBarge.new
+    panda = Panda.new
+    food = foodbarge.food_for(panda)
+    expect(Zookeeper.new.feed(food: food, to: panda)).to eq(true)
   end
 end
